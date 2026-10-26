@@ -53,7 +53,7 @@ export default function Navbar({ query, onQuery, cartCount, onOpenCart, onFilter
         </div>
       </div>
 
-      <nav className="flex gap-5 overflow-x-auto border-t border-gray-100 px-4 py-2 lg:hidden" aria-label="Principal móvil">
+      <nav className="no-scrollbar flex gap-5 overflow-x-auto border-t border-gray-100 px-4 py-2 lg:hidden" aria-label="Principal móvil">
         {LINKS.map((l) => (
           <button key={l.label} onClick={() => go(l)} className="shrink-0 text-[11px] font-medium uppercase tracking-wider">
             {l.label}

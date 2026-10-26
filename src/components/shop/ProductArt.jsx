@@ -3,7 +3,8 @@
 const INK = '#111111'
 const S = { stroke: INK, strokeWidth: 3, strokeLinejoin: 'round' }
 
-export default function ProductArt({ kind, anime, className = '' }) {
+export default function ProductArt({ kind, anime, className = '', view = 'front' }) {
+  const back = view === 'back'
   const c = anime?.color || '#FF6B00'
   const a = anime?.accent || '#FFB800'
   const label = anime?.short || ''
@@ -12,8 +13,8 @@ export default function ProductArt({ kind, anime, className = '' }) {
     tee: (
       <>
         <path d="M32 26 L50 18 Q60 28 70 18 L88 26 L108 50 L93 62 L86 54 L86 104 L34 104 L34 54 L27 62 L12 50 Z" fill={INK} {...S} />
-        <rect x="46" y="44" width="28" height="30" fill={c} stroke="#fff" strokeWidth="2" />
-        <text x="60" y="63" textAnchor="middle" fontFamily="Bangers" fontSize="11" fill={a === INK ? '#fff' : a}>{label.slice(0, 7)}</text>
+        <rect x={back ? 38 : 46} y={back ? 34 : 44} width={back ? 44 : 28} height={back ? 52 : 30} fill={c} stroke="#fff" strokeWidth="2" />
+        <text x="60" y={back ? 66 : 63} textAnchor="middle" fontFamily="Bangers" fontSize={back ? 17 : 11} fill={a === INK ? '#fff' : a}>{label.slice(0, 7)}</text>
       </>
     ),
     cap: (
@@ -63,9 +64,9 @@ export default function ProductArt({ kind, anime, className = '' }) {
   }
 
   return (
-    <svg viewBox="0 0 120 120" className={className} role="img" aria-label={`${kind} ${anime?.name || ''}`}>
+    <svg viewBox={view === 'detail' ? '30 26 60 60' : '0 0 120 120'} className={className} role="img" aria-label={`${kind} ${anime?.name || ''}`}>
       <ellipse cx="60" cy="108" rx="34" ry="4" fill="#000" opacity="0.12" />
-      {shapes[kind] || shapes.tee}
+      {back && kind !== 'tee' ? <g transform="translate(120 0) scale(-1 1)">{shapes[kind]}</g> : shapes[kind] || shapes.tee}
     </svg>
   )
 }

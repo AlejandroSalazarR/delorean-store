@@ -1,15 +1,10 @@
 import { useEffect } from 'react'
 import { Minus, Plus, X } from 'lucide-react'
 import { WhatsAppIcon } from '../ui/BrandIcons'
-import { formatPrice, FREE_SHIPPING_FROM, WHATSAPP_NUMBER } from '../../config'
+import { buildWhatsAppUrl } from '../../lib/whatsapp'
+import { formatPrice, FREE_SHIPPING_FROM, pointsFor } from '../../config'
 
-function buildWhatsAppUrl(items, total) {
-  const lines = items.map((i) => `• ${i.qty}x ${i.product.name}${i.size ? ` (talla ${i.size})` : ''}${i.product.status === 'preventa' ? ' [PREVENTA]' : ''} — ${formatPrice(i.qty * i.product.price)}`)
-  const text = `Hola Delorean Store, quiero hacer este pedido:\n${lines.join('\n')}\n\nTotal: ${formatPrice(total)}`
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
-}
-
-export default function CartDrawer({ open, onClose, items, total, onQty, onClear }) {
+export default function CartDrawer({ open, onClose, items, total, onQty, onClear, onOrder }) {
   useEffect(() => {
     if (!open) return
     const onKey = (e) => e.key === 'Escape' && onClose()
@@ -55,11 +50,12 @@ export default function CartDrawer({ open, onClose, items, total, onQty, onClear
             <p className="text-[11px] uppercase tracking-wider text-neutral-500">
               {missing ? `Te faltan ${formatPrice(missing)} para envío gratis` : 'Tienes envío gratis'}
             </p>
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-delorean">★ Gana {pointsFor(total).toLocaleString('en-US')} puntos Delorean Rewards con esta compra</p>
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold uppercase tracking-widest">Total</span>
               <span className="text-lg font-bold">{formatPrice(total)}</span>
             </div>
-            <a href={buildWhatsAppUrl(items, total)} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#25D366] py-3 text-xs font-semibold uppercase tracking-widest text-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#25D366]/40">
+            <a href={buildWhatsAppUrl(items, total)} onClick={() => onOrder(total)} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#25D366] py-3 text-xs font-semibold uppercase tracking-widest text-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#25D366]/40">
               <WhatsAppIcon size={18} color="#fff" /> Pedir por WhatsApp
             </a>
             <button onClick={onClear} className="w-full text-[11px] uppercase tracking-wider text-neutral-500 underline">Vaciar bolsa</button>

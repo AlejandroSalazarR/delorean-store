@@ -16,20 +16,20 @@ export default function UniverseBackground({ pos, scrollY }) {
             <PixelSprite
               chibi={u.main}
               label=""
-              className={`absolute w-[min(70vw,640px)] ${left ? '-right-[6%]' : '-left-[6%]'} top-[14vh] blur-[5px]`}
+              className={`absolute w-[min(70vw,640px)] ${left ? '-right-[6%]' : '-left-[6%]'} top-[14vh] blur-[14px]`}
               style={{ opacity: 0.2, transform: `translateY(${-drift % 200}px)` }}
             />
             {u.side && (
               <PixelSprite
                 chibi={u.side}
                 label=""
-                className={`absolute w-[min(34vw,320px)] ${left ? 'left-[3%]' : 'right-[3%]'} bottom-[8vh] blur-[4px]`}
+                className={`absolute w-[min(34vw,320px)] ${left ? 'left-[3%]' : 'right-[3%]'} bottom-[8vh] blur-[10px]`}
                 style={{ opacity: 0.16, transform: `translateY(${drift * 0.5 % 120}px)` }}
               />
             )}
             <span
               className="absolute bottom-[4vh] select-none font-display text-[22vw] leading-none"
-              style={{ [left ? 'left' : 'right']: '2%', color: u.main.universe.glyphColor, opacity: 0.1, filter: 'blur(2px)', mixBlendMode: 'multiply' }}
+              style={{ [left ? 'left' : 'right']: '2%', color: u.main.universe.glyphColor, opacity: 0.1, filter: 'blur(6px)', mixBlendMode: 'multiply' }}
             >
               {u.main.universe.glyph}
             </span>

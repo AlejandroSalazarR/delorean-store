@@ -17,7 +17,10 @@ import useScrollUniverse from './hooks/useScrollUniverse'
 import { UNIVERSES } from './components/ui/universes'
 import useRole from './hooks/useRole'
 import { THEMES } from './components/ui/DemoPanel'
-import ViewSwitch from './components/admin/ViewSwitch'
+import ProductModal from './components/shop/ProductModal'
+import RewardsBanner from './components/shop/RewardsBanner'
+import useRewards from './hooks/useRewards'
+import { pointsFor } from './config'
 import useCart from './hooks/useCart'
 import { getAnimes, getCategories, getProducts } from './services/api'
 
@@ -36,6 +39,8 @@ export default function App() {
   const [theme, setTheme] = useState('warm')
   const { role, view, toggleRole, setView } = useRole()
   const [rev, setRev] = useState(0) // sube cuando el admin cambia el inventario
+  const [selected, setSelected] = useState(null)
+  const rewards = useRewards()
   const cart = useCart()
   const { scrollY, pos } = useScrollUniverse(UNIVERSES.length)
 
@@ -69,7 +74,6 @@ export default function App() {
       {preloadRun > 0 && <DeloreanPreloader key={preloadRun} onDone={() => setPreloadRun(0)} />}
 
       <AnnouncementBar />
-      {role === 'admin' && <ViewSwitch view={view} onView={setView} />}
       <Navbar
         query={filters.query}
         onQuery={(query) => patch({ query })}
@@ -80,6 +84,9 @@ export default function App() {
         account={
           <AccountMenu
             role={role}
+            view={view}
+            rewards={rewards}
+            onViewStore={() => setView('user')}
             themeLabel={THEMES.find((t) => t.id === theme).label}
             onToggleRole={toggleRole}
             onManage={() => setView('admin')}
@@ -93,6 +100,8 @@ export default function App() {
       ) : (
         <main className="pb-14">
         {!filtering && <LookbookHero animes={animes} onFilter={applyFilter} />}
+
+        <RewardsBanner {...rewards} />
 
         <section id="catalogo" className="mx-auto max-w-[1600px] scroll-mt-20 px-4 pt-6 lg:px-8">
           <CatalogBar
@@ -119,13 +128,14 @@ export default function App() {
           {products.length === 0 ? (
             <p className="py-16 text-center text-sm text-neutral-500">No encontramos productos con esos filtros. Prueba con otra búsqueda o limpia los filtros.</p>
           ) : (
-            <div className={`mt-6 grid gap-x-3 gap-y-8 ${gridClass}`}>
+            <div className={`mt-6 grid gap-3 sm:gap-5 ${gridClass}`}>
               {products.map((p) => (
                 <ProductCard
                   key={p.id}
                   product={p}
                   anime={animes.find((a) => a.id === p.anime_id)}
                   category={categories.find((c) => c.id === p.category_id)}
+                  onOpen={setSelected}
                   onAdd={(prod, size) => { cart.add(prod, size); setCartOpen(true) }}
                 />
               ))}
@@ -137,7 +147,17 @@ export default function App() {
 
       {view === 'user' && <UniverseIndicator pos={pos} />}
       <StickyFooterBar />
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} items={cart.items} total={cart.total} onQty={cart.setQty} onClear={cart.clear} />
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} items={cart.items} total={cart.total} onQty={cart.setQty} onClear={cart.clear} onOrder={(t) => rewards.earn(pointsFor(t))} />
+      {selected && (
+        <ProductModal
+          product={selected}
+          anime={animes.find((a) => a.id === selected.anime_id)}
+          category={categories.find((c) => c.id === selected.category_id)}
+          onClose={() => setSelected(null)}
+          onAdd={(prod, size) => { cart.add(prod, size); setSelected(null); setCartOpen(true) }}
+          onOrder={(t) => rewards.earn(pointsFor(t))}
+        />
+      )}
 
       <DemoPanel theme={theme} onTheme={setTheme} onReplay={() => setPreloadRun((n) => n + 1)} />
     </div>

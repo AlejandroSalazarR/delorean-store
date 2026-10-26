@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import { Package, Palette, RefreshCw } from 'lucide-react'
+import { Package, Palette, RefreshCw, Star, Store } from 'lucide-react'
 import { WhatsAppIcon } from '../ui/BrandIcons'
 import { WHATSAPP_NUMBER } from '../../config'
 
 const rowClass = 'flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm hover:bg-gray-50'
 
-export default function AccountMenu({ role, themeLabel, onToggleRole, onManage, onCycleTheme }) {
+export default function AccountMenu({ role, view, rewards, themeLabel, onToggleRole, onManage, onViewStore, onCycleTheme }) {
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
   const isAdmin = role === 'admin'
@@ -41,6 +41,17 @@ export default function AccountMenu({ role, themeLabel, onToggleRole, onManage, 
             </div>
           </div>
 
+          <div className="border-b border-gray-100 px-4 py-3">
+            <div className="flex items-center justify-between text-xs">
+              <span className="flex items-center gap-1.5 font-bold text-delorean"><Star size={14} fill="currentColor" /> {rewards.points.toLocaleString('en-US')} puntos</span>
+              <span className="text-neutral-500">Nivel {rewards.tier.name}</span>
+            </div>
+            <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-gray-200">
+              <div className="h-full rounded-full bg-gradient-to-r from-delorean to-rayo" style={{ width: `${rewards.progress * 100}%` }} />
+            </div>
+            <p className="mt-1 text-[10px] uppercase tracking-wider text-neutral-500">{rewards.next ? `${rewards.toNext.toLocaleString('en-US')} para ${rewards.next.name}` : 'Nivel máximo'}</p>
+          </div>
+
           <div className="py-1">
             <button role="menuitemcheckbox" onClick={onToggleRole} className={rowClass} aria-checked={isAdmin}>
               <RefreshCw size={18} strokeWidth={1.7} />
@@ -59,6 +70,12 @@ export default function AccountMenu({ role, themeLabel, onToggleRole, onManage, 
               <span className="flex-1">Gestionar productos</span>
               {!isAdmin && <span className="text-[10px] uppercase tracking-wider">Solo admin</span>}
             </button>
+            {isAdmin && view === 'admin' && (
+              <button role="menuitem" onClick={() => { onViewStore(); setOpen(false) }} className={rowClass}>
+                <Store size={18} strokeWidth={1.7} />
+                <span>Ver tienda como cliente</span>
+              </button>
+            )}
             <button role="menuitem" onClick={onCycleTheme} className={rowClass}>
               <Palette size={18} strokeWidth={1.7} />
               <span className="flex-1">Apariencia: {themeLabel}</span>

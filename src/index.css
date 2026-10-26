@@ -145,3 +145,16 @@ body { margin: 0; background: #fff; color: var(--color-ink); font-family: var(--
 [data-theme='pure'] .glass { background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
 .zoom-smooth { transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
 .group:hover .zoom-smooth, .group:focus-within .zoom-smooth { transform: scale(1.25); }
+
+/* ---------- Pulido móvil ---------- */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@layer components {
+  .marquee { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+  .marquee span { padding-right: 3rem; white-space: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee { display: none !important; }
+  .announce-static { display: block !important; }
+}
