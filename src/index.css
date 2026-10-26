@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-delorean: #ff6b00;
+  --color-delorean-deep: #f26522;
+  --color-rayo: #ffb800;
+  --color-ink: #111111;
+  --color-editorial: #eeeeee;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  /* Solo preloader */
+  --font-display: 'Bangers', 'Impact', sans-serif;
+  --font-pixel: 'Press Start 2P', monospace;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: var(--color-ink); font-family: var(--font-sans); }
+
+/* Trama de semitono (preloader) */
+.halftone-lg {
+  background-image: radial-gradient(circle, currentColor 2.4px, transparent 2.9px);
+  background-size: 16px 16px;
+}
+
+:focus-visible { outline: 2px solid var(--color-delorean); outline-offset: 2px; }
+
+/* ---------- Preloader ---------- */
+@keyframes bolt-fall {
+  0% { transform: translateY(-110%); opacity: 1; }
+  45% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+@keyframes flash {
+  0% { opacity: 0.35; }
+  100% { opacity: 0; }
+}
+@keyframes pop {
+  0% { transform: scale(0.6) translateY(10px); }
+  60% { transform: scale(1.08) translateY(-4px); }
+  100% { transform: scale(1) translateY(0); }
+}
+@keyframes rise {
+  from { transform: translateY(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.9; }
+  to { transform: translateY(-110vh) rotate(180deg); opacity: 0; }
+}
+@keyframes slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.anim-bolt { animation: bolt-fall 550ms ease-out both; }
+.anim-flash { animation: flash 550ms ease-out both; }
+.anim-pop { animation: pop 420ms cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+.anim-rise { animation: rise var(--dur, 1.4s) linear infinite; animation-delay: var(--delay, 0s); }
+.anim-slide-in { animation: slide-in 220ms ease-out both; }
+.anim-fade-in { animation: fade-in 180ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-bolt, .anim-flash, .anim-pop, .anim-rise { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Temas de la demo (data-theme en la raíz de App) ---------- */
+:root, [data-theme='warm'] {
+  --card-bg: #efe9e2;
+  --ht-op: 0.05;
+  --glow-op: 0.08;
+  --hover-ring: rgba(255, 107, 0, 0.7);
+  --hover-glow: rgba(255, 107, 0, 0.25);
+  --wm-op: 0.12;
+}
+[data-theme='pure'] {
+  --card-bg: #eeeeee;
+  --ht-op: 0;
+  --glow-op: 0;
+  --hover-ring: transparent;
+  --hover-glow: transparent;
+  --wm-op: 0;
+}
+[data-theme='energy'] {
+  --card-bg: #f1e6da;
+  --ht-op: 0.1;
+  --glow-op: 0.16;
+  --hover-ring: #ff6b00;
+  --hover-glow: rgba(255, 107, 0, 0.4);
+  --wm-op: 0.2;
+}
+
+/* Fondo de página: halftone + difuminados naranjas arriba y detrás del catálogo */
+.page-bg { position: absolute; inset: 0; z-index: -10; pointer-events: none; overflow: hidden; }
+.page-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 480px at 50% 0, rgb(255 107 0 / var(--glow-op)), transparent 70%),
+    radial-gradient(ellipse 60% 520px at 85% 62%, rgb(255 107 0 / calc(var(--glow-op) * 0.8)), transparent 70%),
+    radial-gradient(ellipse 50% 420px at 8% 38%, rgb(255 107 0 / calc(var(--glow-op) * 0.6)), transparent 70%);
+}
+.page-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  opacity: var(--ht-op);
+  background-image: radial-gradient(circle, #111 1.3px, transparent 1.7px);
+  background-size: 11px 11px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0, rgb(0 0 0 / 0.6) 60%, #000 100%);
+  mask-image: linear-gradient(180deg, #000 0, rgb(0 0 0 / 0.6) 60%, #000 100%);
+}
+[data-theme='energy'] .announce { background: var(--color-delorean); color: #111; }
+[data-theme='energy'] .site-header { border-bottom-color: var(--color-delorean); }
+
+/* Tarjetas: gris cálido, destello naranja al hover y marca de agua manga */
+.card-media { background: var(--card-bg); box-shadow: inset 0 0 0 2px transparent; transition: box-shadow 0.3s; }
+.group:hover .card-media, .group:focus-within .card-media {
+  box-shadow: inset 0 0 0 2px var(--hover-ring), 0 0 28px var(--hover-glow);
+}
+.card-watermark {
+  position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s; color: var(--color-delorean);
+  background: repeating-conic-gradient(from 0deg at 50% 52%, currentColor 0 2.5deg, transparent 2.5deg 11deg);
+  -webkit-mask-image: radial-gradient(circle at 50% 52%, transparent 28%, #000 85%);
+  mask-image: radial-gradient(circle at 50% 52%, transparent 28%, #000 85%);
+}
+.group:hover .card-watermark, .group:focus-within .card-watermark { opacity: var(--wm-op); }
+.card-onomato {
+  position: absolute; left: 50%; top: 8%; transform: translateX(-50%) rotate(-6deg);
+  font-family: var(--font-display); font-size: 2.2rem; letter-spacing: 0.06em; color: var(--color-delorean);
+  opacity: 0; transition: opacity 0.4s;
+}
+.group:hover .card-onomato, .group:focus-within .card-onomato { opacity: calc(var(--wm-op) * 2.2); }
+@media (hover: none) { .card-watermark { opacity: var(--wm-op); } }

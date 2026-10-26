@@ -1,0 +1,206 @@
+{
+  ".claude/launch.json": {
+    "mtime": 1792992640.8292067,
+    "seen": 1792992936.4422357,
+    "ast_hash": "3b2dcf7490a5fcc1561de9a683e3a443",
+    "semantic_hash": ""
+  },
+  ".claude/settings.json": {
+    "mtime": 1792990410.8733919,
+    "seen": 1792992936.4422357,
+    "ast_hash": "4ce7ab6b6cec53469ad0b3631662539c",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1792992672.322733,
+    "seen": 1792992936.4422357,
+    "ast_hash": "6076b781dd744e235c5579175b22ff99",
+    "semantic_hash": ""
+  },
+  "skills-lock.json": {
+    "mtime": 1792989157.4021864,
+    "seen": 1792992936.4422357,
+    "ast_hash": "568943529bc616c93ba4cd199ed98117",
+    "semantic_hash": ""
+  },
+  "src/App.jsx": {
+    "mtime": 1792994148.7564824,
+    "seen": 1792994173.4571826,
+    "ast_hash": "562f80aaefbd858ac6e779c2d31d0380",
+    "semantic_hash": ""
+  },
+  "src/components/layout/Navbar.jsx": {
+    "mtime": 1792993895.985193,
+    "seen": 1792993927.8103836,
+    "ast_hash": "5966e4d4e3ba10556f8c2d123d783b77",
+    "semantic_hash": ""
+  },
+  "src/components/preloader/DeloreanPreloader.jsx": {
+    "mtime": 1792993895.4798994,
+    "seen": 1792993927.8103836,
+    "ast_hash": "ffb77d8525b68f76711574fc183f028e",
+    "semantic_hash": ""
+  },
+  "src/components/preloader/PixelSprite.jsx": {
+    "mtime": 1792993626.5198054,
+    "seen": 1792993789.9736028,
+    "ast_hash": "af886db987dd511cd0f50aa3333d5f18",
+    "semantic_hash": ""
+  },
+  "src/components/preloader/Speedometer.jsx": {
+    "mtime": 1792993895.5217998,
+    "seen": 1792993927.8103836,
+    "ast_hash": "73540d59375a22424456675e83d6edb2",
+    "semantic_hash": ""
+  },
+  "src/components/preloader/chibis.js": {
+    "mtime": 1792993626.0773108,
+    "seen": 1792993789.9736028,
+    "ast_hash": "2121f26fdf107d99a39cce8d38029c29",
+    "semantic_hash": ""
+  },
+  "src/components/shop/CartDrawer.jsx": {
+    "mtime": 1792994147.9983172,
+    "seen": 1792994173.4571826,
+    "ast_hash": "2dd996ebcaeb312cf0f93eae5f1d46f1",
+    "semantic_hash": ""
+  },
+  "src/components/shop/ProductArt.jsx": {
+    "mtime": 1792993646.7216618,
+    "seen": 1792993789.9736028,
+    "ast_hash": "d78a84db56f3bd2cca8a556d0ea4d87d",
+    "semantic_hash": ""
+  },
+  "src/components/shop/ProductCard.jsx": {
+    "mtime": 1792994147.9983172,
+    "seen": 1792994173.4571826,
+    "ast_hash": "ea80c4927e54c8f83b71763459c4f2ed",
+    "semantic_hash": ""
+  },
+  "src/components/ui/Bolt.jsx": {
+    "mtime": 1792992842.0190904,
+    "seen": 1792992936.4422357,
+    "ast_hash": "7a35804a55e945a91991878b9a77d088",
+    "semantic_hash": ""
+  },
+  "src/config.js": {
+    "mtime": 1792994147.997314,
+    "seen": 1792994173.4571826,
+    "ast_hash": "91742e427de17bec3ef6aaeb47bddaf5",
+    "semantic_hash": ""
+  },
+  "src/data/mockDatabase.js": {
+    "mtime": 1792994147.997314,
+    "seen": 1792994173.4571826,
+    "ast_hash": "7e8a1a6c8e902cea9a80fa80de6fe561",
+    "semantic_hash": ""
+  },
+  "src/hooks/useCart.js": {
+    "mtime": 1792993646.6364985,
+    "seen": 1792993789.9736028,
+    "ast_hash": "dee1ec515a18a34e938bfa1f0efd777f",
+    "semantic_hash": ""
+  },
+  "src/main.jsx": {
+    "mtime": 1792992806.514744,
+    "seen": 1792992936.4422357,
+    "ast_hash": "155a46cdd770e84eb75a10e38c25be18",
+    "semantic_hash": ""
+  },
+  "src/services/api.js": {
+    "mtime": 1792994147.9983172,
+    "seen": 1792994173.4571826,
+    "ast_hash": "6d884e6131202c8afecf0b1f9b64fe3a",
+    "semantic_hash": ""
+  },
+  "vite.config.js": {
+    "mtime": 1792992657.5826843,
+    "seen": 1792992936.4422357,
+    "ast_hash": "4234f7c60f14db87965a2ddbf51dc023",
+    "semantic_hash": ""
+  },
+  ".agents/skills/frontend-design/LICENSE.txt": {
+    "mtime": 1792989156.282166,
+    "seen": 1792992936.4422357,
+    "ast_hash": "29256199be2a609aac596980ffc11996",
+    "semantic_hash": ""
+  },
+  ".agents/skills/frontend-design/SKILL.md": {
+    "mtime": 1792989156.2826636,
+    "seen": 1792992936.4422357,
+    "ast_hash": "9dab6b03d40b3a94a97a70bc65cf00f5",
+    "semantic_hash": ""
+  },
+  ".claude/skills/frontend-design/LICENSE.txt": {
+    "mtime": 1792989156.282166,
+    "seen": 1792992936.4422357,
+    "ast_hash": "29256199be2a609aac596980ffc11996",
+    "semantic_hash": ""
+  },
+  ".claude/skills/frontend-design/SKILL.md": {
+    "mtime": 1792989156.2826636,
+    "seen": 1792992936.4422357,
+    "ast_hash": "9dab6b03d40b3a94a97a70bc65cf00f5",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1792992408.796729,
+    "seen": 1792992936.4422357,
+    "ast_hash": "cd1c9e3e4c0200e5b8b857732c2c21cb",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1792993698.393005,
+    "seen": 1792993789.9736028,
+    "ast_hash": "fb775c1580075c0251204af9aa3d1627",
+    "semantic_hash": ""
+  },
+  "src/components/layout/AnnouncementBar.jsx": {
+    "mtime": 1792993895.950569,
+    "seen": 1792993927.8103836,
+    "ast_hash": "6eb885562ec1d8cceaf1c2c2c8a8e2e1",
+    "semantic_hash": ""
+  },
+  "src/components/layout/LookbookHero.jsx": {
+    "mtime": 1792993895.9083292,
+    "seen": 1792993927.8103836,
+    "ast_hash": "cde5ff88489322e4fea859b46e7988f7",
+    "semantic_hash": ""
+  },
+  "src/components/layout/StickyFooterBar.jsx": {
+    "mtime": 1792994147.9993184,
+    "seen": 1792994173.4571826,
+    "ast_hash": "647bc0911eab71811f05ff8eb2895e4e",
+    "semantic_hash": ""
+  },
+  "src/components/shop/CatalogBar.jsx": {
+    "mtime": 1792993757.8279986,
+    "seen": 1792993789.9736028,
+    "ast_hash": "c2a1f7b3473ac57fc018f41d06cec7f8",
+    "semantic_hash": ""
+  },
+  "src/components/shop/FilterPanel.jsx": {
+    "mtime": 1792993699.0465922,
+    "seen": 1792993789.9736028,
+    "ast_hash": "c42425c1af4e82e1e2ebff3405f76539",
+    "semantic_hash": ""
+  },
+  "src/components/ui/DemoPanel.jsx": {
+    "mtime": 1792993896.1861775,
+    "seen": 1792993927.8103836,
+    "ast_hash": "abb1b8881ea76e6414eb54ace1699309",
+    "semantic_hash": ""
+  },
+  "src/components/admin/AdminPanel.jsx": {
+    "mtime": 1792994148.1133165,
+    "seen": 1792994173.4571826,
+    "ast_hash": "20b9449698080496a3fc51a7ee44c93c",
+    "semantic_hash": ""
+  },
+  "src/components/admin/ViewSwitch.jsx": {
+    "mtime": 1792994148.2327127,
+    "seen": 1792994173.4571826,
+    "ast_hash": "62ed2f51e39b82bd9e2ba0106de106bb",
+    "semantic_hash": ""
+  }
+}
