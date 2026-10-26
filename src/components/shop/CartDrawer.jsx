@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Minus, Plus, X } from 'lucide-react'
+import { WhatsAppIcon } from '../ui/BrandIcons'
 import { formatPrice, FREE_SHIPPING_FROM, WHATSAPP_NUMBER } from '../../config'
 
 function buildWhatsAppUrl(items, total) {
@@ -58,8 +59,8 @@ export default function CartDrawer({ open, onClose, items, total, onQty, onClear
               <span className="text-xs font-semibold uppercase tracking-widest">Total</span>
               <span className="text-lg font-bold">{formatPrice(total)}</span>
             </div>
-            <a href={buildWhatsAppUrl(items, total)} target="_blank" rel="noopener noreferrer" className="block bg-ink py-3 text-center text-xs font-semibold uppercase tracking-widest text-white hover:bg-delorean">
-              Pedir por WhatsApp
+            <a href={buildWhatsAppUrl(items, total)} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#25D366] py-3 text-xs font-semibold uppercase tracking-widest text-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#25D366]/40">
+              <WhatsAppIcon size={18} color="#fff" /> Pedir por WhatsApp
             </a>
             <button onClick={onClear} className="w-full text-[11px] uppercase tracking-wider text-neutral-500 underline">Vaciar bolsa</button>
           </footer>

@@ -10,6 +10,9 @@ import ProductCard from './components/shop/ProductCard'
 import CartDrawer from './components/shop/CartDrawer'
 import DemoPanel from './components/ui/DemoPanel'
 import AdminPanel from './components/admin/AdminPanel'
+import AccountMenu from './components/layout/AccountMenu'
+import useRole from './hooks/useRole'
+import { THEMES } from './components/ui/DemoPanel'
 import ViewSwitch from './components/admin/ViewSwitch'
 import useCart from './hooks/useCart'
 import { getAnimes, getCategories, getProducts } from './services/api'
@@ -27,8 +30,7 @@ export default function App() {
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
   const [theme, setTheme] = useState('warm')
-  const [adminUnlocked, setAdminUnlocked] = useState(false)
-  const [view, setView] = useState('user') // 'user' | 'admin'
+  const { role, view, toggleRole, setView } = useRole()
   const [rev, setRev] = useState(0) // sube cuando el admin cambia el inventario
   const cart = useCart()
 
@@ -46,6 +48,7 @@ export default function App() {
   const patch = (p) => setFilters((f) => ({ ...f, ...p }))
   const applyFilter = (p) => {
     setFilters({ ...NO_FILTERS, ...p })
+    setView('user')
     document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -59,23 +62,30 @@ export default function App() {
       <div className="page-bg" aria-hidden="true" />
       {preloadRun > 0 && <DeloreanPreloader key={preloadRun} onDone={() => setPreloadRun(0)} />}
 
-      {adminUnlocked && <ViewSwitch view={view} onView={setView} />}
-
-      {view === 'admin' ? (
-        <AdminPanel animes={animes} categories={categories} rev={rev} onChanged={() => setRev((r) => r + 1)} />
-      ) : (
-        <>
       <AnnouncementBar />
+      {role === 'admin' && <ViewSwitch view={view} onView={setView} />}
       <Navbar
         query={filters.query}
         onQuery={(query) => patch({ query })}
         cartCount={cart.count}
         onOpenCart={() => setCartOpen(true)}
         onFilter={applyFilter}
-        onOpenFilters={() => { setFiltersOpen(true); document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' }) }}
+        onOpenFilters={() => { setView('user'); setFiltersOpen(true); setTimeout(() => document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' }), 50) }}
+        account={
+          <AccountMenu
+            role={role}
+            themeLabel={THEMES.find((t) => t.id === theme).label}
+            onToggleRole={toggleRole}
+            onManage={() => setView('admin')}
+            onCycleTheme={() => setTheme(THEMES[(THEMES.findIndex((t) => t.id === theme) + 1) % THEMES.length].id)}
+          />
+        }
       />
 
-      <main className="pb-14">
+      {view === 'admin' ? (
+        <AdminPanel animes={animes} categories={categories} rev={rev} onChanged={() => setRev((r) => r + 1)} />
+      ) : (
+        <main className="pb-14">
         {!filtering && <LookbookHero animes={animes} onFilter={applyFilter} />}
 
         <section id="catalogo" className="mx-auto max-w-[1600px] scroll-mt-20 px-4 pt-6 lg:px-8">
@@ -116,12 +126,11 @@ export default function App() {
             </div>
           )}
         </section>
-      </main>
-
-      <StickyFooterBar onAdmin={() => { setAdminUnlocked(true); setView('admin'); window.scrollTo(0, 0) }} />
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} items={cart.items} total={cart.total} onQty={cart.setQty} onClear={cart.clear} />
-        </>
+        </main>
       )}
+
+      <StickyFooterBar />
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} items={cart.items} total={cart.total} onQty={cart.setQty} onClear={cart.clear} />
 
       <DemoPanel theme={theme} onTheme={setTheme} onReplay={() => setPreloadRun((n) => n + 1)} />
     </div>

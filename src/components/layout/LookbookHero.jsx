@@ -17,7 +17,7 @@ export default function LookbookHero({ animes, onFilter }) {
           </h1>
           <div>
             <p className="mb-5 max-w-xs text-sm text-neutral-600">
-              Camisetas oversize, gorras bordadas y figuras de Bleach, Jujutsu Kaisen, One Piece y más. Diez años vistiendo frikis.
+              Camisetas oversize, gorras bordadas y figuras de Bleach, Jujutsu Kaisen, One Piece y más. Diez años de moda urbana, cultura pop y coleccionismo.
             </p>
             <button
               onClick={() => onFilter({})}

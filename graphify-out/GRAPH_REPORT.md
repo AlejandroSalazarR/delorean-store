@@ -1,54 +1,60 @@
 # Graph Report - Delorean  (2026-10-26)
 
 ## Corpus Check
-- 31 files · ~12,298 words
+- 34 files · ~13,030 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .css 1)
+- Unclassified: 3 file(s) not represented in the graph (top: (none) 1, .toml 1, .css 1)
 
 ## Summary
-- 119 nodes · 218 edges · 9 communities
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
+- 127 nodes · 247 edges · 10 communities
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `7a5dba9c`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - package.json
 - DeloreanPreloader.jsx
 - App.jsx
-- StickyFooterBar.jsx
+- react
 - App
 - Frontend Design
 - Proyecto: Delorean Store (E-commerce Friki & Anime - 10 años)
 - ProductCard.jsx
-- CatalogBar.jsx
+- main.jsx
+- mockDatabase.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `App()` - 18 edges
-2. `react` - 9 edges
+1. `App()` - 20 edges
+2. `react` - 12 edges
 3. `formatPrice()` - 8 edges
 4. `AdminPanel()` - 7 edges
 5. `DeloreanPreloader()` - 7 edges
-6. `lucide-react` - 6 edges
-7. `wait()` - 6 edges
-8. `getProducts()` - 6 edges
-9. `Frontend Design` - 6 edges
-10. `StickyFooterBar()` - 5 edges
+6. `WhatsAppIcon()` - 7 edges
+7. `lucide-react` - 6 edges
+8. `StickyFooterBar()` - 6 edges
+9. `CartDrawer()` - 6 edges
+10. `wait()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `App()` --calls--> `ViewSwitch()`  [EXTRACTED]
   src/App.jsx → src/components/admin/ViewSwitch.jsx
+- `App()` --calls--> `AccountMenu()`  [EXTRACTED]
+  src/App.jsx → src/components/layout/AccountMenu.jsx
 - `App()` --calls--> `AnnouncementBar()`  [EXTRACTED]
   src/App.jsx → src/components/layout/AnnouncementBar.jsx
 - `App()` --calls--> `LookbookHero()`  [EXTRACTED]
   src/App.jsx → src/components/layout/LookbookHero.jsx
 - `App()` --calls--> `Navbar()`  [EXTRACTED]
   src/App.jsx → src/components/layout/Navbar.jsx
-- `App()` --calls--> `StickyFooterBar()`  [EXTRACTED]
-  src/App.jsx → src/components/layout/StickyFooterBar.jsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (9 total, 0 thin omitted)
+## Communities (10 total, 0 thin omitted)
 
 ### Community 0 - "package.json"
 Cohesion: 0.14
@@ -59,16 +65,16 @@ Cohesion: 0.20
 Nodes (10): LINKS, Navbar(), CHIBIS, DeloreanPreloader(), PARTICLES, pickNext(), buildRects(), PixelSprite() (+2 more)
 
 ### Community 2 - "App.jsx"
-Cohesion: 0.16
-Nodes (10): react, NO_FILTERS, OPTIONS, ViewSwitch(), AnnouncementBar(), FilterPanel(), Opt(), DemoPanel() (+2 more)
+Cohesion: 0.14
+Nodes (14): NO_FILTERS, OPTIONS, ViewSwitch(), AnnouncementBar(), CatalogBar(), Dots(), SORTS, FilterPanel() (+6 more)
 
-### Community 3 - "StickyFooterBar.jsx"
-Cohesion: 0.20
-Nodes (11): dependencies, lucide-react@^1.61.0, react@^18.3.1, react-dom@^18.3.1, lucide-react, react-dom, Facebook(), Instagram() (+3 more)
+### Community 3 - "react"
+Cohesion: 0.23
+Nodes (15): lucide-react, react, AccountMenu(), LEGAL, StickyFooterBar(), buildWhatsAppUrl(), CartDrawer(), FacebookIcon() (+7 more)
 
 ### Community 4 - "App"
-Cohesion: 0.17
-Nodes (17): App(), AdminPanel(), EMPTY, SIZES, STATUS, animes, categories, db (+9 more)
+Cohesion: 0.30
+Nodes (12): App(), AdminPanel(), EMPTY, SIZES, STATUS, addProduct(), getAnimes(), getCategories() (+4 more)
 
 ### Community 5 - "Frontend Design"
 Cohesion: 0.29
@@ -76,22 +82,28 @@ Nodes (6): Design principles, Frontend Design, Ground your designs in the subjec
 
 ### Community 6 - "Proyecto: Delorean Store (E-commerce Friki & Anime - 10 años)"
 Cohesion: 0.33
-Nodes (5): graphify, Proyecto: Delorean Store (E-commerce Friki & Anime - 10 años), Reglas de Ejecución, Sistema de Diseño y Marca, Stack Tecnológico
+Nodes (5): graphify, Proyecto: Delorean Store (E-commerce de Moda Urbana, Anime & Coleccionismo - 10 años), Reglas de Ejecución, Sistema de Diseño y Marca, Stack Tecnológico
 
 ### Community 7 - "ProductCard.jsx"
-Cohesion: 0.25
-Nodes (10): LookbookHero(), TILES, buildWhatsAppUrl(), CartDrawer(), ProductArt(), S, ProductCard(), formatPrice() (+2 more)
+Cohesion: 0.39
+Nodes (5): LookbookHero(), TILES, ProductArt(), S, ProductCard()
 
-### Community 8 - "CatalogBar.jsx"
-Cohesion: 0.67
-Nodes (3): CatalogBar(), Dots(), SORTS
+### Community 8 - "main.jsx"
+Cohesion: 0.29
+Nodes (5): dependencies, lucide-react@^1.61.0, react@^18.3.1, react-dom@^18.3.1, react-dom
+
+### Community 9 - "mockDatabase.js"
+Cohesion: 0.29
+Nodes (5): animes, categories, db, products, SIZES
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `App.jsx` to `package.json`, `DeloreanPreloader.jsx`, `StickyFooterBar.jsx`, `App`, `ProductCard.jsx`?**
-  _High betweenness centrality (0.226) - this node is a cross-community bridge._
+- **Why does `react` connect `react` to `package.json`, `DeloreanPreloader.jsx`, `App.jsx`, `App`, `main.jsx`?**
+  _High betweenness centrality (0.250) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.14035087719298245 - nodes in this community are weakly interconnected._
-- **Why does `lucide-react` connect `StickyFooterBar.jsx` to `package.json`, `DeloreanPreloader.jsx`, `App.jsx`, `ProductCard.jsx`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+- **Why does `lucide-react` connect `react` to `package.json`, `main.jsx`, `App.jsx`, `DeloreanPreloader.jsx`?**
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Should `App.jsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.13852813852813853 - nodes in this community are weakly interconnected._

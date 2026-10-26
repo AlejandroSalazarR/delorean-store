@@ -9,7 +9,7 @@ Rules:
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
 - A committed graphify-out/graph.json is rewritten whole on every build, so a large diff to it in a pull request is expected. Do not flag it as churn or suggest skipping the graph rebuild or its hooks.
 
-# Proyecto: Delorean Store (E-commerce Friki & Anime - 10 años)
+# Proyecto: Delorean Store (E-commerce de Moda Urbana, Anime & Coleccionismo - 10 años)
 
 ## Stack Tecnológico
 - Frontend: React 18 + Vite + Tailwind CSS + Lucide Icons.

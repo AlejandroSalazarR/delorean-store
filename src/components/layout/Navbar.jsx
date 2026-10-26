@@ -11,7 +11,7 @@ const LINKS = [
   { label: 'Ver todo', filter: {} },
 ]
 
-export default function Navbar({ query, onQuery, cartCount, onOpenCart, onFilter, onOpenFilters }) {
+export default function Navbar({ query, onQuery, cartCount, onOpenCart, onFilter, onOpenFilters, account }) {
   const go = (l) => (l.open ? onOpenFilters() : onFilter(l.filter))
 
   return (
@@ -43,13 +43,13 @@ export default function Navbar({ query, onQuery, cartCount, onOpenCart, onFilter
               className="w-32 bg-transparent text-xs uppercase tracking-wider outline-none placeholder:text-neutral-400 lg:w-44"
             />
           </label>
-          <button className="hidden text-xs font-medium uppercase tracking-wider hover:text-delorean sm:block">Iniciar sesión</button>
           <button onClick={onOpenCart} className="relative" aria-label={`Abrir carrito, ${cartCount} productos`}>
             <ShoppingBag size={20} strokeWidth={1.5} />
             <span className="absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center rounded-full bg-delorean px-1 text-[10px] font-semibold text-white">
               {cartCount}
             </span>
           </button>
+          {account}
         </div>
       </div>
 

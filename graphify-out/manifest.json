@@ -24,15 +24,15 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1792994148.7564824,
-    "seen": 1792994173.4571826,
-    "ast_hash": "562f80aaefbd858ac6e779c2d31d0380",
+    "mtime": 1792994859.7550893,
+    "seen": 1792994893.8829014,
+    "ast_hash": "58c2bff44ab04da6bf14e72582224938",
     "semantic_hash": ""
   },
   "src/components/layout/Navbar.jsx": {
-    "mtime": 1792993895.985193,
-    "seen": 1792993927.8103836,
-    "ast_hash": "5966e4d4e3ba10556f8c2d123d783b77",
+    "mtime": 1792994859.754089,
+    "seen": 1792994893.8829014,
+    "ast_hash": "46faf0b7abac031a9584d07dafccf60d",
     "semantic_hash": ""
   },
   "src/components/preloader/DeloreanPreloader.jsx": {
@@ -60,9 +60,9 @@
     "semantic_hash": ""
   },
   "src/components/shop/CartDrawer.jsx": {
-    "mtime": 1792994147.9983172,
-    "seen": 1792994173.4571826,
-    "ast_hash": "2dd996ebcaeb312cf0f93eae5f1d46f1",
+    "mtime": 1792994859.7550893,
+    "seen": 1792994893.8829014,
+    "ast_hash": "f533c50b553a29a186f867095e391393",
     "semantic_hash": ""
   },
   "src/components/shop/ProductArt.jsx": {
@@ -144,9 +144,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792992408.796729,
-    "seen": 1792992936.4422357,
-    "ast_hash": "cd1c9e3e4c0200e5b8b857732c2c21cb",
+    "mtime": 1792995009.686617,
+    "seen": 1792995016.6203723,
+    "ast_hash": "46051a554ed68759718b3e7643c6ccfe",
     "semantic_hash": ""
   },
   "index.html": {
@@ -156,21 +156,21 @@
     "semantic_hash": ""
   },
   "src/components/layout/AnnouncementBar.jsx": {
-    "mtime": 1792993895.950569,
-    "seen": 1792993927.8103836,
-    "ast_hash": "6eb885562ec1d8cceaf1c2c2c8a8e2e1",
+    "mtime": 1792995009.6856155,
+    "seen": 1792995016.6203723,
+    "ast_hash": "a5c2f1b64770328e420bc1e470db016c",
     "semantic_hash": ""
   },
   "src/components/layout/LookbookHero.jsx": {
-    "mtime": 1792993895.9083292,
-    "seen": 1792993927.8103836,
-    "ast_hash": "cde5ff88489322e4fea859b46e7988f7",
+    "mtime": 1792995009.6856155,
+    "seen": 1792995016.6203723,
+    "ast_hash": "4b090d335f35989ef1e133daf6b523c3",
     "semantic_hash": ""
   },
   "src/components/layout/StickyFooterBar.jsx": {
-    "mtime": 1792994147.9993184,
-    "seen": 1792994173.4571826,
-    "ast_hash": "647bc0911eab71811f05ff8eb2895e4e",
+    "mtime": 1792994859.1915414,
+    "seen": 1792994893.8829014,
+    "ast_hash": "988c0ade50bc82f146e476de4cd79063",
     "semantic_hash": ""
   },
   "src/components/shop/CatalogBar.jsx": {
@@ -201,6 +201,24 @@
     "mtime": 1792994148.2327127,
     "seen": 1792994173.4571826,
     "ast_hash": "62ed2f51e39b82bd9e2ba0106de106bb",
+    "semantic_hash": ""
+  },
+  "src/components/layout/AccountMenu.jsx": {
+    "mtime": 1792994845.648726,
+    "seen": 1792994893.8829014,
+    "ast_hash": "33bbab6114b726e1348ecdb08d008b18",
+    "semantic_hash": ""
+  },
+  "src/components/ui/BrandIcons.jsx": {
+    "mtime": 1792994841.348601,
+    "seen": 1792994893.8829014,
+    "ast_hash": "513b38e2c3a3568ab739b1234f35ec4c",
+    "semantic_hash": ""
+  },
+  "src/hooks/useRole.js": {
+    "mtime": 1792994841.7537067,
+    "seen": 1792994893.8829014,
+    "ast_hash": "20725d38cb3a58fe6a40195b0fe8b14c",
     "semantic_hash": ""
   }
 }
