@@ -11,6 +11,10 @@ import CartDrawer from './components/shop/CartDrawer'
 import DemoPanel from './components/ui/DemoPanel'
 import AdminPanel from './components/admin/AdminPanel'
 import AccountMenu from './components/layout/AccountMenu'
+import UniverseBackground from './components/ui/UniverseBackground'
+import UniverseIndicator from './components/ui/UniverseIndicator'
+import useScrollUniverse from './hooks/useScrollUniverse'
+import { UNIVERSES } from './components/ui/universes'
 import useRole from './hooks/useRole'
 import { THEMES } from './components/ui/DemoPanel'
 import ViewSwitch from './components/admin/ViewSwitch'
@@ -33,6 +37,7 @@ export default function App() {
   const { role, view, toggleRole, setView } = useRole()
   const [rev, setRev] = useState(0) // sube cuando el admin cambia el inventario
   const cart = useCart()
+  const { scrollY, pos } = useScrollUniverse(UNIVERSES.length)
 
   useEffect(() => {
     getAnimes().then(setAnimes)
@@ -59,6 +64,7 @@ export default function App() {
 
   return (
     <div data-theme={theme} className="relative isolate min-h-screen">
+      <UniverseBackground pos={pos} scrollY={scrollY} />
       <div className="page-bg" aria-hidden="true" />
       {preloadRun > 0 && <DeloreanPreloader key={preloadRun} onDone={() => setPreloadRun(0)} />}
 
@@ -129,6 +135,7 @@ export default function App() {
         </main>
       )}
 
+      {view === 'user' && <UniverseIndicator pos={pos} />}
       <StickyFooterBar />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} items={cart.items} total={cart.total} onQty={cart.setQty} onClear={cart.clear} />
 

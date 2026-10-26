@@ -1,17 +1,17 @@
 # Graph Report - Delorean  (2026-10-26)
 
 ## Corpus Check
-- 34 files · ~13,030 words
+- 38 files · ~13,624 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: (none) 1, .toml 1, .css 1)
 
 ## Summary
-- 127 nodes · 247 edges · 10 communities
+- 136 nodes · 273 edges · 9 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7a5dba9c`
+- Built from commit: `63f8d9af`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,20 +24,19 @@
 - Frontend Design
 - Proyecto: Delorean Store (E-commerce Friki & Anime - 10 años)
 - ProductCard.jsx
-- main.jsx
 - mockDatabase.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `App()` - 20 edges
-2. `react` - 12 edges
+1. `App()` - 23 edges
+2. `react` - 13 edges
 3. `formatPrice()` - 8 edges
 4. `AdminPanel()` - 7 edges
 5. `DeloreanPreloader()` - 7 edges
 6. `WhatsAppIcon()` - 7 edges
 7. `lucide-react` - 6 edges
 8. `StickyFooterBar()` - 6 edges
-9. `CartDrawer()` - 6 edges
-10. `wait()` - 6 edges
+9. `PixelSprite()` - 6 edges
+10. `CartDrawer()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `App()` --calls--> `ViewSwitch()`  [EXTRACTED]
@@ -54,19 +53,19 @@
 ## Import Cycles
 - None detected.
 
-## Communities (10 total, 0 thin omitted)
+## Communities (9 total, 0 thin omitted)
 
 ### Community 0 - "package.json"
-Cohesion: 0.14
-Nodes (17): devDependencies, tailwindcss@^4.3.3, @tailwindcss/vite@^4.3.3, vite@^6.4.5, @vitejs/plugin-react@^4.7.0, name, private, scripts (+9 more)
+Cohesion: 0.10
+Nodes (22): dependencies, lucide-react@^1.61.0, react@^18.3.1, react-dom@^18.3.1, devDependencies, tailwindcss@^4.3.3, @tailwindcss/vite@^4.3.3, vite@^6.4.5 (+14 more)
 
 ### Community 1 - "DeloreanPreloader.jsx"
-Cohesion: 0.20
-Nodes (10): LINKS, Navbar(), CHIBIS, DeloreanPreloader(), PARTICLES, pickNext(), buildRects(), PixelSprite() (+2 more)
+Cohesion: 0.14
+Nodes (13): LINKS, Navbar(), CHIBIS, DeloreanPreloader(), PARTICLES, pickNext(), buildRects(), PixelSprite() (+5 more)
 
 ### Community 2 - "App.jsx"
-Cohesion: 0.14
-Nodes (14): NO_FILTERS, OPTIONS, ViewSwitch(), AnnouncementBar(), CatalogBar(), Dots(), SORTS, FilterPanel() (+6 more)
+Cohesion: 0.13
+Nodes (15): NO_FILTERS, OPTIONS, ViewSwitch(), AnnouncementBar(), CatalogBar(), Dots(), SORTS, FilterPanel() (+7 more)
 
 ### Community 3 - "react"
 Cohesion: 0.23
@@ -88,10 +87,6 @@ Nodes (5): graphify, Proyecto: Delorean Store (E-commerce de Moda Urbana, Anime 
 Cohesion: 0.39
 Nodes (5): LookbookHero(), TILES, ProductArt(), S, ProductCard()
 
-### Community 8 - "main.jsx"
-Cohesion: 0.29
-Nodes (5): dependencies, lucide-react@^1.61.0, react@^18.3.1, react-dom@^18.3.1, react-dom
-
 ### Community 9 - "mockDatabase.js"
 Cohesion: 0.29
 Nodes (5): animes, categories, db, products, SIZES
@@ -99,11 +94,13 @@ Nodes (5): animes, categories, db, products, SIZES
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `react` to `package.json`, `DeloreanPreloader.jsx`, `App.jsx`, `App`, `main.jsx`?**
-  _High betweenness centrality (0.250) - this node is a cross-community bridge._
+- **Why does `react` connect `react` to `package.json`, `DeloreanPreloader.jsx`, `App.jsx`, `App`?**
+  _High betweenness centrality (0.238) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.14035087719298245 - nodes in this community are weakly interconnected._
-- **Why does `lucide-react` connect `react` to `package.json`, `main.jsx`, `App.jsx`, `DeloreanPreloader.jsx`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+  _Cohesion score 0.09846153846153846 - nodes in this community are weakly interconnected._
+- **Why does `lucide-react` connect `react` to `package.json`, `DeloreanPreloader.jsx`, `App.jsx`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+- **Should `DeloreanPreloader.jsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.14492753623188406 - nodes in this community are weakly interconnected._
 - **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.13852813852813853 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12681159420289856 - nodes in this community are weakly interconnected._

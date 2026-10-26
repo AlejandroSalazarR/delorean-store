@@ -15,7 +15,7 @@ function Dots({ n }) {
 
 export default function CatalogBar({ activeCount, onToggleFilters, sort, onSort, total, cols, onCols }) {
   return (
-    <div className="grid grid-cols-2 items-center gap-y-3 border-y border-gray-100 py-3 text-xs font-medium uppercase tracking-wider md:grid-cols-3">
+    <div className="glass grid grid-cols-2 items-center gap-y-3 border-y border-gray-100 px-3 py-3 text-xs font-medium uppercase tracking-wider md:grid-cols-3">
       <div className="flex items-center gap-5">
         <button onClick={onToggleFilters} className="whitespace-nowrap hover:text-delorean">({activeCount}) Filtros</button>
         <label className="flex items-center gap-1">

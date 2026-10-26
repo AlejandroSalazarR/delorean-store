@@ -10,7 +10,7 @@ export default function LookbookHero({ animes, onFilter }) {
   return (
     <section id="top" className="mx-auto max-w-[1600px] px-4 pb-6 pt-8 lg:px-8">
       <div className="grid gap-px md:grid-cols-[1.1fr_2fr]">
-        <div className="flex flex-col justify-between bg-white py-4 md:pr-10">
+        <div className="glass flex flex-col justify-between p-5 md:pr-10">
           <p className="text-xs font-medium uppercase tracking-widest text-neutral-500">Lookbook urbano · Medellín</p>
           <h1 className="my-8 text-4xl font-bold uppercase leading-[1.02] tracking-tight sm:text-6xl">
             Anime para<br />usar a diario.

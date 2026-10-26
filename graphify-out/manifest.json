@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1792994859.7550893,
-    "seen": 1792994893.8829014,
-    "ast_hash": "58c2bff44ab04da6bf14e72582224938",
+    "mtime": 1792995477.5890281,
+    "seen": 1792995515.4388032,
+    "ast_hash": "4af3a3c4a533bb24f0b28ff445fd7184",
     "semantic_hash": ""
   },
   "src/components/layout/Navbar.jsx": {
@@ -42,9 +42,9 @@
     "semantic_hash": ""
   },
   "src/components/preloader/PixelSprite.jsx": {
-    "mtime": 1792993626.5198054,
-    "seen": 1792993789.9736028,
-    "ast_hash": "af886db987dd511cd0f50aa3333d5f18",
+    "mtime": 1792995477.586028,
+    "seen": 1792995515.4388032,
+    "ast_hash": "b0bf031f2fcbcf6784a854e8c4b26740",
     "semantic_hash": ""
   },
   "src/components/preloader/Speedometer.jsx": {
@@ -72,9 +72,9 @@
     "semantic_hash": ""
   },
   "src/components/shop/ProductCard.jsx": {
-    "mtime": 1792994147.9983172,
-    "seen": 1792994173.4571826,
-    "ast_hash": "ea80c4927e54c8f83b71763459c4f2ed",
+    "mtime": 1792995477.5870285,
+    "seen": 1792995515.4388032,
+    "ast_hash": "a1a86be639338a851cea9a0e0aff58e6",
     "semantic_hash": ""
   },
   "src/components/ui/Bolt.jsx": {
@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "src/components/layout/LookbookHero.jsx": {
-    "mtime": 1792995009.6856155,
-    "seen": 1792995016.6203723,
-    "ast_hash": "4b090d335f35989ef1e133daf6b523c3",
+    "mtime": 1792995477.588029,
+    "seen": 1792995515.4388032,
+    "ast_hash": "80293bf91a92c14afad8a81564ac2a4b",
     "semantic_hash": ""
   },
   "src/components/layout/StickyFooterBar.jsx": {
@@ -174,15 +174,15 @@
     "semantic_hash": ""
   },
   "src/components/shop/CatalogBar.jsx": {
-    "mtime": 1792993757.8279986,
-    "seen": 1792993789.9736028,
-    "ast_hash": "c2a1f7b3473ac57fc018f41d06cec7f8",
+    "mtime": 1792995477.5870285,
+    "seen": 1792995515.4388032,
+    "ast_hash": "c12329ffe0f704148fb46158946306e7",
     "semantic_hash": ""
   },
   "src/components/shop/FilterPanel.jsx": {
-    "mtime": 1792993699.0465922,
-    "seen": 1792993789.9736028,
-    "ast_hash": "c42425c1af4e82e1e2ebff3405f76539",
+    "mtime": 1792995477.588029,
+    "seen": 1792995515.4388032,
+    "ast_hash": "15a6feb1feaf3495725e2e5b7ec5389f",
     "semantic_hash": ""
   },
   "src/components/ui/DemoPanel.jsx": {
@@ -219,6 +219,30 @@
     "mtime": 1792994841.7537067,
     "seen": 1792994893.8829014,
     "ast_hash": "20725d38cb3a58fe6a40195b0fe8b14c",
+    "semantic_hash": ""
+  },
+  "src/components/ui/UniverseBackground.jsx": {
+    "mtime": 1792995509.0541394,
+    "seen": 1792995515.4388032,
+    "ast_hash": "bbdc102ea71ecd46989a6175eb18ba67",
+    "semantic_hash": ""
+  },
+  "src/components/ui/UniverseIndicator.jsx": {
+    "mtime": 1792995464.8322368,
+    "seen": 1792995515.4388032,
+    "ast_hash": "d913918bb94bac60d900fb59941de727",
+    "semantic_hash": ""
+  },
+  "src/components/ui/universes.js": {
+    "mtime": 1792995464.3912785,
+    "seen": 1792995515.4388032,
+    "ast_hash": "395fde5e735c8bfcafe8c54647fa3008",
+    "semantic_hash": ""
+  },
+  "src/hooks/useScrollUniverse.js": {
+    "mtime": 1792995464.5095825,
+    "seen": 1792995515.4388032,
+    "ast_hash": "6b0c38e85dbd30f96f94916fdb28d424",
     "semantic_hash": ""
   }
 }

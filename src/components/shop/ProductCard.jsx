@@ -8,18 +8,14 @@ export default function ProductCard({ product, anime, category, onAdd }) {
   const discount = was ? Math.round((1 - price / was) * 100) : 0
 
   return (
-    <article className="group">
+    <article className="group glass pb-3">
       <div className="card-media relative aspect-[3/4] overflow-hidden">
         <div className="card-watermark" aria-hidden="true" />
         <span className="card-onomato" aria-hidden="true">¡ZAS!</span>
         {product.image_url ? (
-          <img src={product.image_url} alt={product.name} loading="lazy" className="h-full w-full object-cover" />
+          <img src={product.image_url} alt={product.name} loading="lazy" className="zoom-smooth h-full w-full object-cover" />
         ) : (
-          <>
-            <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">{art}</div>
-            {/* segunda vista: detalle ampliado de la prenda */}
-            <div className="absolute inset-0 scale-150 opacity-0 transition-opacity duration-500 group-hover:opacity-100">{art}</div>
-          </>
+          <div className="zoom-smooth absolute inset-0">{art}</div>
         )}
 
         {discount > 0 && <span className="absolute right-2 top-2 bg-delorean px-1.5 py-0.5 text-[10px] font-semibold tracking-wider text-white">-{discount}%</span>}
@@ -50,8 +46,8 @@ export default function ProductCard({ product, anime, category, onAdd }) {
         </div>
       </div>
 
-      <h3 className="mt-3 text-xs font-medium uppercase tracking-wide text-neutral-900">{product.name}</h3>
-      <p className="mt-1 text-sm font-bold">
+      <h3 className="mt-3 px-3 text-xs font-medium uppercase tracking-wide text-neutral-900">{product.name}</h3>
+      <p className="mt-1 px-3 text-sm font-bold">
         {formatPrice(price)}
         {was && <span className="ml-2 text-xs font-normal text-neutral-400 line-through">{formatPrice(was)}</span>}
       </p>

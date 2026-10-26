@@ -19,10 +19,10 @@ function buildRects(half, palette, extra = []) {
   return rects
 }
 
-export default function PixelSprite({ chibi, className = '', label }) {
+export default function PixelSprite({ chibi, className = '', label, style }) {
   const rects = useMemo(() => buildRects(chibi.half, chibi.palette, chibi.extra), [chibi])
   return (
-    <svg viewBox={`0 0 ${SIZE} ${SIZE}`} shapeRendering="crispEdges" className={className} role="img" aria-label={label || chibi.name}>
+    <svg viewBox={`0 0 ${SIZE} ${SIZE}`} shapeRendering="crispEdges" className={className} style={style} role={label === '' ? undefined : 'img'} aria-label={label === '' ? undefined : label || chibi.name}>
       {rects}
     </svg>
   )

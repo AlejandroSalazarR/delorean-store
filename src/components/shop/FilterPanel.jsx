@@ -13,7 +13,7 @@ function Opt({ active, onClick, children }) {
 export default function FilterPanel({ animes, categories, animeId, categoryIds, onAnime, onCategories, onClear }) {
   const toggle = (id) => onCategories(categoryIds.includes(id) ? categoryIds.filter((c) => c !== id) : [...categoryIds, id])
   return (
-    <div className="grid gap-6 border-b border-gray-100 py-5 sm:grid-cols-2">
+    <div className="glass grid gap-6 border-b border-gray-100 px-3 py-5 sm:grid-cols-2">
       <div>
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest">Licencia / Anime</p>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
